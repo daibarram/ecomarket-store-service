@@ -14,8 +14,5 @@ import java.util.List;
 public class OrderEntity {
     private int id;
     private List<ProductEntity> products;
-    private double total;
-    private double subtotal;
-    private double iva;
     private String status;
 }
