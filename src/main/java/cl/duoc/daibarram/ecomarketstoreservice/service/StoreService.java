@@ -31,4 +31,57 @@ public class StoreService {
         return storeList;
     }
 
+    public boolean saveStore(Store store) {
+        StoreEntity storeEntity = storeRepository.getByNameOrAddress(store.getName(), store.getAddress());
+        if (storeEntity == null) {
+            storeRepository.save(
+                    new StoreEntity(
+                            store.getId(),
+                            store.getName(),
+                            store.getAddress(),
+                            store.getPhone(),
+                            store.isActive()
+                    ));
+            return true;
+        }
+        return false;
+    }
+
+    public boolean replaceStore(int id, Store newStore) {
+        StoreEntity found = null;
+        List<StoreEntity> stores = storeRepository.getAll();
+        for (StoreEntity store : stores) {
+            if (store.getId() == id) {
+                found = store;
+            }
+        }
+        if (found != null) {
+            storeRepository.replace(
+                    found,
+                    new StoreEntity(
+                        newStore.getId(),
+                        newStore.getName(),
+                        newStore.getAddress(),
+                        newStore.getPhone(),
+                        newStore.isActive()
+            ));
+            return true;
+        }
+        return false;
+    }
+
+    public boolean deleteStore(int id) {
+        StoreEntity found = null;
+        List<StoreEntity> stores = storeRepository.getAll();
+        for (StoreEntity store : stores) {
+            if (store.getId() == id) {
+                found = store;
+            }
+        }
+        if (found != null) {
+            storeRepository.delete(found);
+            return true;
+        }
+        return false;
+    }
 }
