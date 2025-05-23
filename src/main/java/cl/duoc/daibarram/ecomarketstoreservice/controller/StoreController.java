@@ -6,14 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/stores")
 public class StoreController {
 
     @Autowired
     private StoreRepository storeRepository;
-
-    @GetMapping
-    public List<Stores>
 
 }
