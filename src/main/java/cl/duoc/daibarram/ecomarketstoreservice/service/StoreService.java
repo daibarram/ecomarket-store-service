@@ -31,6 +31,16 @@ public class StoreService {
         return storeList;
     }
 
+    public Store getStoreById(int id) {
+        List<Store> stores = getStores();
+        for (Store store : stores) {
+            if (store.getId() == id) {
+                return store;
+            }
+        }
+        return null;
+    }
+
     public boolean saveStore(Store store) {
         StoreEntity storeEntity = storeRepository.getByNameOrAddress(store.getName(), store.getAddress());
         if (storeEntity == null) {
