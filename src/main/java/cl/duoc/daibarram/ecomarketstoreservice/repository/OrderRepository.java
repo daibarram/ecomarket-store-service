@@ -16,17 +16,17 @@ public class OrderRepository {
     public OrderRepository() {
         orders = new ArrayList<>();
 
-        List<ProductEntity> productos1 = Arrays.asList (
+        List<ProductEntity> products1 = Arrays.asList (
                 new ProductEntity(1, 1, "Pan", "Pan integral", 1500),
                 new ProductEntity(2, 1, "Leche", "Leche descremada", 1200)
         );
 
-        List<ProductEntity> productos2 = Arrays.asList(
+        List<ProductEntity> products2 = Arrays.asList(
                 new ProductEntity(3, 1, "Arroz", "Arroz largo", 1800)
         );
 
-        orders.add(new OrderEntity(1, productos1, "PENDIENTE"));
-        orders.add(new OrderEntity(2, productos2, "ENVIADO"));
+        orders.add(new OrderEntity(1, products1, "PENDIENTE"));
+        orders.add(new OrderEntity(2, products2, "ENVIADO"));
     }
 
     public List<OrderEntity> getAll() {
