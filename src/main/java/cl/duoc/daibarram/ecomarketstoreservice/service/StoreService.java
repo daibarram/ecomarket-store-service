@@ -21,11 +21,11 @@ public class StoreService {
         for (StoreEntity storeEntity : stores) {
             storeList.add(
                     new Store(
-                            storeEntity.getId(),
-                            storeEntity.getName(),
-                            storeEntity.getAddress(),
-                            storeEntity.getPhone(),
-                            storeEntity.isActive()
+                        storeEntity.getId(),
+                        storeEntity.getName(),
+                        storeEntity.getAddress(),
+                        storeEntity.getPhone(),
+                        storeEntity.isActive()
                     ));
         }
         return storeList;
@@ -46,11 +46,11 @@ public class StoreService {
         if (storeEntity == null) {
             storeRepository.save(
                     new StoreEntity(
-                            store.getId(),
-                            store.getName(),
-                            store.getAddress(),
-                            store.getPhone(),
-                            store.isActive()
+                        store.getId(),
+                        store.getName(),
+                        store.getAddress(),
+                        store.getPhone(),
+                        store.isActive()
                     ));
             return true;
         }
